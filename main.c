@@ -1,10 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL2\SDL.h> //On inclus la bibliothèque SDL2
+#include <SDL2\SDL.h>
 
 int main(int arc, char *argv[])
 {
-    if (SDL_Init(SDL_INIT_EVERYTHING)>=0) //Grace à la fonction SDL_Init, on choisit de tout initialiser avec SDL_INIT_EVERYTHING. Si la fonction est vérifiée (si elle retourne un résultat non nul), on peut passer au code.
+    SDL_Window *pWindow=NULL; //D'abord, on crée un pointeur fenetre
+
+    if (SDL_Init(SDL_INIT_EVERYTHING)>=0)
     {
-        //...code...
+        pWindow = SDL_CreateWindow("Fenetre de Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1024, 780, SDL_WINDOW_SHOWN);
+        //Ensuite, on crée la fenetre grâce a SDL_CreateWindow qui prend en argument: Le titre, La position en x, La position en y, la Largeur, la Hauteur et les différents flags
     }
+    return 0;
+}
