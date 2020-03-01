@@ -15,12 +15,22 @@ int main(int arc, char *argv[])
         if (pWindow != NULL)
         {
             pRenderer=SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED|SDL_RENDERER_PRESENTVSYNC);
+            SDL_Rect rectangleV = {50,50,100,100};
+            SDL_Rect rectangleP = {600, 50, 100, 100};
 
-
+            //On met le fond en rouge
             SDL_SetRenderDrawColor(pRenderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
-            SDL_RenderClear(pRenderer); //Pour effacer puis re-afficher
+            SDL_RenderClear(pRenderer);
+
+            //On dessine le rectangle Vide
+            SDL_SetRenderDrawColor(pRenderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+            SDL_RenderDrawRect(pRenderer, &rectangleV);
+
+            //On dessine le rectangle Plein
+            SDL_RenderFillRect (pRenderer, &rectangleP);
+
             SDL_RenderPresent(pRenderer);
-            SDL_Delay(2000);
+            SDL_Delay(10000);
 
 
             SDL_DestroyRenderer(pRenderer);
