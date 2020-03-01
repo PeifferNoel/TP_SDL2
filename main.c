@@ -18,7 +18,7 @@ int main(int arc, char *argv[])
             pRenderer=SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED|SDL_RENDERER_PRESENTVSYNC);
             //On cree un renderer grace a SDL_CreateRenderer qui a comme arguments la fenetre a laquelle le renderer est associe, son index et ses flags
 
-            SDL_RenderPresent(pRenderer); //On "envoie" les instructions du renderer a la fenetre
+            SDL_RenderPresent(pRenderer); //On envoie les instructions du renderer a la fenetre
             SDL_Delay(2000);
 
             SDL_DestroyRenderer(pRenderer); //On detruit le renderer
