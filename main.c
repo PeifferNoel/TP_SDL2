@@ -6,7 +6,7 @@ int main(int arc, char *argv[])
 {
     SDL_Window *pWindow=NULL;
     SDL_Renderer *pRenderer=NULL;
-    SDL_Surface* pSurface = NULL; //On initialise la surface a NULL
+    SDL_Surface* pSurface = NULL;
 
     if (SDL_Init(SDL_INIT_EVERYTHING)>=0)
     {
@@ -20,12 +20,13 @@ int main(int arc, char *argv[])
             SDL_RenderClear(pRenderer);
 
             pSurface = SDL_CreateRGBSurface (0, 100, 100, 32, 0, 0, 0, 0);
-                                            //Les flags, la largueur, la hauteur et le nombre de bit par pixel de la surface, les 4 derniers correspondent aux masques RGBA
+            SDL_Rect surface_rect = {0, 0, 100, 100};
+            SDL_FillRect(pSurface, &surface_rect, SDL_MapRGB(pSurface->format, 0, 0, 0));
 
             SDL_RenderPresent(pRenderer);
             SDL_Delay(2000);
 
-            SDL_FreeSurface(pSurface);      //On détruit la surface et on libèère son espace alloué
+            SDL_FreeSurface(pSurface);
             SDL_DestroyRenderer(pRenderer);
             SDL_DestroyWindow(pWindow);
             SDL_Quit();
