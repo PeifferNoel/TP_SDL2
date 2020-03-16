@@ -1,0 +1,24 @@
+Bonjour,
+Nous sommes le 16/03 à 14h, et depuis ce matin j’ai une panne de clavier, impossible de produire du code efficacement, je suis actuellement en train d’écrire au clavier numérique.
+
+ça m’apprendra à tout finir au dernier moment, mais bon, je sacrifie une partie de la note et dans ce document j’essaierais de répondre aux dernières questions proprement.
+Merci de votre considération.
+
+
+
+
+22) + 23) RenderCopy sert à copier une texture vers un renderer défini par SetRenderTarget.
+
+24) Query_Texture sert récupérer les informations d’une texture comme par exemple sa taille.
+
+25) Pour charger un BMP avec loadBMP, on utilise le code suivant:
+SDL_Surface *monBMP = SDL_LoadBMP(“monImage.bmp”);
+
+26) Pour créer une texture à partir d’un BMP, on utilise ces deux lignes de code:
+SDL_Surface *monBMP = SDL_LoadBMP(“monImage.bmp”);
+SDL_Texture *maTextureDImage = SDL_CreateTextureFromSurface (pRenderer, monBMP);
+
+28) Dans mon code, j’ai bien pris soin de fermer les instances; en revanche pour la Texture et la Surface, on utilise:
+SDL_DestroyTexture(maTextureDImage);
+SDL_FreeSurface (monBMP);
+Avant la destruction du Renderer.
